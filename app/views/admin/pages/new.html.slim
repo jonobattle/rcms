@@ -1,0 +1,24 @@
+h1 New page
+
+= form_for @page, :url => admin_pages_path do |f|
+  - if @page.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@page.errors.count, "error")} prohibited this page from being saved:"
+      ul
+        - @page.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :body
+    = f.text_area :body
+  .field
+    = f.label :parent_page_slug
+    = f.number_field :parent_page_slug
+  
+  .actions = f.submit 'Save'
+
+
+= link_to 'Back', admin_pages_path

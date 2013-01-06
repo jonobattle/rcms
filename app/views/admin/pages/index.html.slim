@@ -1,0 +1,23 @@
+h1 Listing pages
+
+table
+  tr
+    th Title
+    th Parent page
+    th Slug
+    th
+    th
+    th
+
+  - @pages.each do |page|
+    tr
+      td = page.title
+      td = page.parent_page_slug
+      td = page.slug
+      td = link_to 'Visit Page', show_page_path(page.slug)
+      td = link_to 'Edit Page', admin_edit_page_path(page.slug)
+      / td = button_to 'Destroy', admin_page_path(page.slug), :confirm => 'Are you sure?', :method => :delete
+
+br
+
+/ = link_to 'New Page', new_admin_page_path

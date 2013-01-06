@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TasMongo</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" , '/assets/ckeditor/ckeditor.js', '/assets/ckeditor/init.js'%>
+  <%= csrf_meta_tags %>
+</head>
+<body class="admin">
+
+  <div id="container">
+    
+    <div id="header">
+      Her eis the header
+    </div>
+
+    <div id="content">
+      <%= yield %>
+    </div>
+
+    <div id="footer">
+      here is the admin footer
+    </div>
+
+  </div>
+
+</body>
+</html>

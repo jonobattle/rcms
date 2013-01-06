@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TasMongo</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" , '/assets/ckeditor/ckeditor.js', '/assets/ckeditor/init.js'%>
+  <%= csrf_meta_tags %>
+  <script type="text/javascript">
+    CKEDITOR.config.height = 400;
+  </script>
+</head>
+<body class="admin-without-sidebar">
+
+  <div id="container">
+    
+    <div id="header">
+      Her eis the header
+    </div>
+
+    <div id="content">
+      <%= yield %>
+    </div>
+
+    <div id="footer">
+      here is the admins footer
+    </div>
+
+  </div>
+
+</body>
+</html>

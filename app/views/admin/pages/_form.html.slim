@@ -1,0 +1,29 @@
+= simple_form_for @page, :url => admin_page_path(@page.slug) do |f|
+  
+  - if @page.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@page.errors.count, "error")} prohibited this page from being saved:"
+      ul
+        - @page.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label "Page Title"
+    = f.text_field :title, :class => 'full'
+
+  .field
+    = f.label "Page Slug"
+    = f.text_field :slug    
+
+  .field
+    = f.label "Parent Page"
+    - available_parents = @page.availableParents
+    = select('page', 'parent_page_slug', available_parents, {}, :selected => @page.parent_page_slug )
+    
+  .field
+    = f.text_area :body, :class => :ckeditor, :rows => 1000
+  
+
+  .actions 
+    = f.submit 'Save'
+    = button_to "Cancel", admin_pages_path
